@@ -8,6 +8,11 @@ public class UserAdminRepository : IUserAdminRepository
 {
     private readonly OutpostDbContext _db;
 
+    public UserAdminRepository(OutpostDbContext db)
+    {
+        _db = db;
+    }
+
     public async Task<List<AdminUserDto>> GetAllAsync(bool includeArchived)
     {
         List<AdminUserDto> users = await (
